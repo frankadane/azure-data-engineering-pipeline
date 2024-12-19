@@ -43,8 +43,15 @@ This project demonstrates an end-to-end data engineering solution built using Mi
 ### **Steps**  
 1. **Data Ingestion**:  
    - Ingest raw tables from SQL Server using Azure Data Factory (ADF).  
-   - Store the raw data in Azure Data Lake.  
+	[Self-Hosted-Integration-Service running onprem](screenshots/1.self_hosted_integration_runtime_manager.png)
+	[Onprem SQL Server database: AdventureWorks2017](screenshots/2.On_prem_SQL_Server_AdventureWorks2017.png)
 
+   - Store the raw data in Azure Data Lake.  
+	[Azure Data Lake Storage container](screenshots/3.Azure_Datalake_storage_gen2.png)
+
+#### **1. Pipeline which copy all tables Bronze container**
+![copy all tables](screenshots/4.Pipeline_to_copy_all_tables_from_onprem.png)
+      
 2. **Data Transformation**:  
    - Use Azure Databricks to clean and standardize the data.  
    - Apply deduplication and formatting rules.  
