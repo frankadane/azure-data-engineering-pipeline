@@ -13,6 +13,9 @@ This project demonstrates an end-to-end data engineering solution built using Mi
 - **Data Visualization:** An interactive Power BI dashboard integrates with Synapse Analytics to deliver business insights.  
 - **Governance & Monitoring:** Azure Key Vault and Microsoft Entra ID (formerly Azure AD) ensure security and compliance.
 
+### **1. Project Architecture**
+![End to End project](screenshots/Azure_data_engineering_archecture.png)
+
 ---
 
 ## **Key Features**  
