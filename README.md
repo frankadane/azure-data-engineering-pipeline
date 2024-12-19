@@ -43,18 +43,24 @@ This project demonstrates an end-to-end data engineering solution built using Mi
 ### **Steps**  
 1. **Data Ingestion**:  
    - Ingest raw tables from SQL Server using Azure Data Factory (ADF).  
-	[Self-Hosted-Integration-Service running onprem](screenshots/1.self_hosted_integration_runtime_manager.png)
-	[Onprem SQL Server database: AdventureWorks2017](screenshots/2.On_prem_SQL_Server_AdventureWorks2017.png)
+	[Self-Hosted-Integration-Service running On-prem](screenshots/1.self_hosted_integration_runtime_manager.png)  
+	[On-prem SQL Server database: AdventureWorks2017](screenshots/2.On_prem_SQL_Server_AdventureWorks2017.png)
 
    - Store the raw data in Azure Data Lake.  
 	[Azure Data Lake Storage container](screenshots/3.Azure_Datalake_storage_gen2.png)
 
-#### **1. Pipeline which copy all tables Bronze container**
+ ** Pipeline which copy all tables Bronze container**
 ![copy all tables](screenshots/4.Pipeline_to_copy_all_tables_from_onprem.png)
       
 2. **Data Transformation**:  
    - Use Azure Databricks to clean and standardize the data.  
-   - Apply deduplication and formatting rules.  
+	a. Adjusting date columns to a standard "yyyy-MM-dd" format.  
+	b. Saving the transformed tables to their respective directories in the "silver" layer.  
+  	[Transforming date columns script](notebooks/bronze_to_silver.py)  
+
+	c. Renaming column names to follow the `snake_case` naming convention.  
+	d. Saving the transformed tables in Delta format in the "gold" layer.    
+	[snake_case naming columns script](notebooks/silver_to_gold.py)  
 
 3. **Data Loading**:  
    - Load the transformed data into Azure Synapse Analytics.  
