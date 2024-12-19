@@ -58,18 +58,20 @@ This project demonstrates an end-to-end data engineering solution built using Mi
    - Use Azure Databricks to clean and standardize the data.  
 	a. Adjusting date columns to a standard "yyyy-MM-dd" format.  
 	b. Saving the transformed tables to their respective directories in the "silver" layer.  
-  	[Transforming date columns script](notebooks/bronze_to_silver.py)  
+  	[Transforming date columns script: Bronze to Sliver Layer](notebooks/bronze_to_silver.py)  
 
         c. Renaming column names to follow the `snake_case` naming convention.    
         d. Saving the transformed tables in Delta format in the "gold" layer.    
-        [snake_case naming columns script](notebooks/silver_to_gold.py)  
+        [snake_case naming columns script: Silver to Gold layer](notebooks/silver_to_gold.py)  
 
 	 **Added Transformation to the pipeline**
 ![Transformation to the pipeline](screenshots/5.End_to_End_pipeline.png) 
 
 3. **Data Loading**:  
    - Load the transformed data into Azure Synapse Analytics.  
-   - Perform additional SQL transformations if needed.  
+    [Store procedure in Azure Synapse Analytics](scripts/CreateSQLServerlessView_gold.sql)
+     The store procedure dynamically creates or alters views in a Synapse Serverless database.
+     These views point to Delta Lake tables stored in an Azure Data Lake Storage (ADLS) Gen2 container for easy access by        Power BI or other reporting tools.  
 
 4. **Data Visualization**:  
    - Connect Power BI to Synapse Analytics for reporting.  
