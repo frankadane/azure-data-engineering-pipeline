@@ -43,7 +43,9 @@ This project demonstrates an end-to-end data engineering solution built using Mi
 ### **Steps**  
 1. **Data Ingestion**:  
    - Ingest raw tables from SQL Server using Azure Data Factory (ADF).  
+	Set up Integration runtime
 	[Self-Hosted-Integration-Service running On-prem](screenshots/1.self_hosted_integration_runtime_manager.png)  
+        Sample database downloaded
 	[On-prem SQL Server database: AdventureWorks2017](screenshots/2.On_prem_SQL_Server_AdventureWorks2017.png)
 	[AdventureWorks2017 database file](data/)
 
@@ -69,17 +71,19 @@ This project demonstrates an end-to-end data engineering solution built using Mi
 
 3. **Data Loading**:  
    - Load the transformed data into Azure Synapse Analytics.  
-    [Store procedure in Azure Synapse Analytics](scripts/CreateSQLServerlessView_gold.sql)
+    [Store procedure in Azure Synapse Analytics](scripts/CreateSQLServerlessView_gold.sql)  
      The store procedure dynamically creates or alters views in a Synapse Serverless database.
      These views point to Delta Lake tables stored in an Azure Data Lake Storage (ADLS) Gen2 container for easy access by        Power BI or other reporting tools.  
 
 4. **Data Visualization**:  
    - Connect Power BI to Synapse Analytics for reporting.  
    - Create dynamic dashboards to visualize KPIs and trends.  
+    [Power BI file](visualizations/PowerBI.pbix)  
+![Power bi](screenshots/powerbi.png)  
 
 5. **Monitoring and Governance**:  
    - Use Azure Key Vault to securely store credentials.  
-   - Monitor pipelines using Azure’s in-built monitoring tools and Python scripts.
+   - Monitor pipelines using Azure’s in-built monitoring tools.  
 
 ---
 
